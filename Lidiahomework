@@ -1,0 +1,34 @@
+  Scenario: Utilizatorul se înregistreaza pe site 
+  Given Utilizatorul accesează pagina de înregistrare
+  When  Introduce un nume valid, o adresă de e-mail validă și o parolă validă
+  And Apasă butonul "Înregistrare"
+  And Utilizatorul introduce datele pe pagina "Tell us about yourself"
+  And Utilizatorul apasa butonul "Next: Location"
+  And Utilizatorul introduce datele "Add your address"
+  And Utilizatorul apasa next
+  And Utilizatorul introduce datele "Tell us about your devices"
+  And Utilizatorul apasa "Next: Last step"
+  And Utilizatorul introduce datele pe pagina "The last step"
+  And Utilizatorul apasa "complete Setup"
+  Then Contul este creat cu succes
+  And utilizatorul primește un e-mail de confirmare
+
+  Scenario: Utilizatorul se înregistreze pe site cu un e-mail existent
+  Given utilizatorul accesează pagina de înregistrare
+  And introduce o adresă de e-mail creata
+  When Apasă butonul "Autentificare"
+  Then Utilizator este autentificat
+
+  Scenario: Utilizatorul postează cu succes
+  Given utilizatorul este autentificat
+  When accesează secțiunea "Forum"
+  And creează un nou subiect cu un titlu și un mesaj valid
+  Then postarea este publicată cu succes
+  And este vizibilă pentru toti membri 
+
+  Scenario: Utilizatorul poate reseta parola 
+  Given Utilizatorul accesează pagina de autentificare a "uTest"
+  And  Utilizatorul apasă pe "Ai uitat parola?"
+  And  Utilizatorul introduce o adresă de email valida
+  When Utilizatorul apasă butonul de resetare a parolei
+  Then Utilizatorul primeste un email cu instrucțiuni de resetare a parolei

@@ -1,0 +1,31 @@
+Scenario 1: User can log in
+ Given: User is on the "Log In" page in the website
+ And: User has an existing account
+ When: User introduces the email
+ And: User introduces the password
+ And: User clicks the "Sign in" button
+ Then: User successfully logs into the existing account
+
+Scenario 2: User can watch the video on the main page
+ Given: User is on the main page of the website
+ When: User scrolls down to the first video player below "How uTest Works"
+ And: User click the "play" icon
+ Then: User can watch the video
+
+Scenario 3: "Join Today" button on the main page works upon clicking
+ Given: User is on the main page of the website
+ When: User click on the yellow "Join Today" button
+ Then: User is taken to the "/signup/personal" page
+
+Scenario 4: User can't complete the fourth sign-up step with only lowercase letters
+ Given: User has successfully passed the first three sign-up steps
+ When: User types "spinach" in the "Create your uTest password" placeholder
+ And: User types "spinach" in the "Confirm password" placeholder
+ Then: User cannot complete the setup after clicking the blue "Complete Setup" button
+
+Scenario 5: User can reset the existing account's password using the email
+ Given: User is already on the "Log in" page of the website
+ When: User clicks on the "Forgot Password?" hyperlink
+ And: User types the email of the existing account into the "Username or email (Required)" placeholder
+ And: User clicks the blue "Reset password" button
+ Then: User receives an email stating the instructions to reset the password
