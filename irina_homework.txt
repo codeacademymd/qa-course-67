@@ -1,0 +1,45 @@
+Scenario 1: Utilizatorul se poate înregistra cu succes pe platforma uTest
+  Given Utilizatorul accesează pagina de înregistrare
+  And Utilizatorul introduce datele pe pagina "Tell us about yourself"	
+  And Utilizatorul apasa butonul "Next: Location"
+  And Utilizatorul introduce datele pe pagina "Add your address"
+  And Utilizatorul apasa butonul "Next: Devices"
+  And Utilizatorul introduce datele pe pagina "Tell us about your devices"
+  And Utilizatorul apasa butonul "Next: Last step"
+  And Utilizatorul introduce datele pe pagina "The last step"
+  And Utilizatorul apasa butonul "Complete Setup"
+  Then Utilizatorul ar trebui să fie înregistrat
+
+Scenario 2: Utilizatorul se poate autentifica cu succes pe platformă
+  Given Utilizatorul accesează pagina de autentificare uTest
+  And Utilizatorul introduce o adresă de email validă
+  And Utilizatorul introduce o parolă corectă
+  When Utilizatorul apasă butonul de autentificare
+  Then Utilizatorul ar trebui să fie redirecționat către pagina principală a platformei
+
+Scenario 3 (negativ): Utilizatorul nu se poate autentifica cu un email inexistent
+  Given Utilizatorul accesează pagina de autentificare a uTest
+  And Utilizatorul introduce o adresă de email care nu este înregistrată
+  And Utilizatorul introduce o parolă corectă
+  When Utilizatorul apasă butonul de autentificare
+  Then Utilizatorul ar trebui să vadă un mesaj de eroare "Invalid username or password"
+
+Scenario 4: Utilizatorul poate reseta parola dacă a uitat-o
+  Given Utilizatorul accesează pagina de autentificare a uTest
+  And Utilizatorul apasă pe link-ul "Ai uitat parola?"
+  And Utilizatorul introduce o adresă de email validă
+  When Utilizatorul apasă butonul de resetare a parolei
+  Then Utilizatorul ar trebui să primească un email cu instrucțiuni de resetare a parolei
+
+Scenario 5: Utilizatorul poate accesa pagina de profil
+  Given Utilizatorul este autentificat pe platforma uTest
+  When Utilizatorul accesează pagina de profil
+  Then Utilizatorul ar trebui să vadă informațiile sale personale
+
+Scenario 6 (negativ): Utilizatorul nu poate salva un profil incomplet
+  Given Utilizatorul este autentificat pe platforma uTest 
+  And Utilizatorul accesează pagina de profil
+  And Utilizatorul șterge informațiile din câmpul "Name"
+  When Utilizatorul apasă butonul "Save"
+  Then Utilizatorul ar trebui să vadă un mesaj de eroare "The Name field is required"
+
