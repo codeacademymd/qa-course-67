@@ -1,11 +1,13 @@
 Scenario 1: Utilizatorul se poate înregistra cu succes pe platforma uTest
   Given Utilizatorul accesează pagina de înregistrare
-  And Utilizatorul introduce un nume valid
-  And Utilizatorul introduce o adresă de email valida
-  And Utilizatorul introduce o parolă validă
-  And Utilizatorul confirmă parola
-  And Utilizatorul acceptă termenii și condițiile
-  When Utilizatorul apasă butonul de înregistrare
+  And Utilizatorul introduce datele pe pagina "Tell us about yourself"	
+  And Utilizatorul apasa butonul "Next: Location"
+  And Utilizatorul introduce datele pe pagina "Add your address"
+  And Utilizatorul apasa butonul "Next: Devices"
+  And Utilizatorul introduce datele pe pagina "Tell us about your devices"
+  And Utilizatorul apasa butonul "Next: Last step"
+  And Utilizatorul introduce datele pe pagina "The last step"
+  And Utilizatorul apasa butonul "Complete Setup"
   Then Utilizatorul ar trebui să fie înregistrat
 
 Scenario 2: Utilizatorul se poate autentifica cu succes pe platformă
@@ -20,7 +22,7 @@ Scenario 3 (negativ): Utilizatorul nu se poate autentifica cu un email inexisten
   And Utilizatorul introduce o adresă de email care nu este înregistrată
   And Utilizatorul introduce o parolă corectă
   When Utilizatorul apasă butonul de autentificare
-  Then Utilizatorul ar trebui să vadă un mesaj de eroare "Email inexistent"
+  Then Utilizatorul ar trebui să vadă un mesaj de eroare "Invalid username or password"
 
 Scenario 4: Utilizatorul poate reseta parola dacă a uitat-o
   Given Utilizatorul accesează pagina de autentificare a uTest
