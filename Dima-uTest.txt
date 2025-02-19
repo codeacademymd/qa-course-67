@@ -1,0 +1,39 @@
+Feature: Inregistrare utilizator
+Scenario 1: Inregistrare reusita
+Given: Utilizatorul se afla pe pagina de inregistrare
+When: Utilizatorul introduce datele personale valide
+And: Utilizatorul introduce un email si o parola valida
+And: Utilizatorul apasa pe butonul "Inregistreaza-te"
+Then: Utilizatorul a fost inregistrat
+
+
+Feature: Autentificare utilizator
+Scenario 2: Autentificare reusita
+Given: Utilizatorul se afla pe pagina de autentificare
+When: Utilizatorul introduce un email si o parola valida
+And: Utilizatorul apasa pe butonul "Autentificare"
+Then: Utilizatorul a fost autentificat
+
+
+Feature: Raportare bug
+Scenario 3: Utilizatorul trimite un raport de bug
+Given: Utilizatorul se afla pe pagina de raportare a bug-urilor
+When: Utilizatorul completeaza detaliile bug-ului
+And: Utilizatorul apasa pe butonul "Trimite"
+Then: Bug-ul a fost raportat
+
+
+Feature: Autentificare utilizator
+Scenario 4: Autentificare esuata
+Given: Utilizatorul se afla pe pagina de autentificare
+When: Utilizatorul introduce un email si o parola invalida
+And: Utilizatorul apasa pe butonul "Autentificare"
+Then: Utilizatorul nu a fost autentificat
+
+
+Feature: Raportare bug
+Scenario 5: Utilizatorul trimite un raport de bug
+Given: Utilizatorul se afla pe pagina de raportare a bug-urilor
+When: Utilizatorul nu completeaza detaliile bug-ului
+And: Utilizatorul apasa pe butonul "Trimite"
+Then: Bug-ul nu a fost raportat
