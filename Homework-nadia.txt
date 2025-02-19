@@ -1,0 +1,63 @@
+Feature 1: Inregistrarea pe site
+Scenario 1 : Utilizatorul ar trebui sa se inregistreze pe site cu un email valid
+Given: Utilizatorul da click pe butonul "Join Today"
+When:Utilizatorul se afla pe pagina "https://utest.com/signup/personal"
+And: Completeaza toate spaceholder-urile introducand si o adresa de email valida
+And: Completeaza toate spaceholder-urile si la "Step 2"
+And: Completeaza toate spaceholder-urile si la "Step 3"
+And: La "Step 4" creaza o parola si bifeaza ultimile 2 patratele
+Then: Da click pe butonul "Complete Setup"
+
+
+Scenario 2 : Utilizatorul nu ar trebui sa se poata inregistra pe site cu un email invalid
+When: Utilizatorul se afla pe pagina "https://utest.com/signup/personal"
+And: Completeaza toate spaceholder-urile introducand si o adresa de email invalida (de ex:aaaaaaaaa@gmail.com)
+Then: Da click pe butonul "Next: Location" 
+
+Scenario 3 : Utilizatorul nu ar trebui sa se poata inregistra pe site cu un nume din cifre si semne de punctuatie
+When: Utilizatorul se afla pe pagina "https://utest.com/signup/personal"
+Then: Completeaza spaceholder-urile "First name" si "Last name" cu cifre si semne de punctuatie
+
+
+Feature 2: Logarea pe site
+Scenario 1 : Utilizatorul ar trebui sa se poata loga pe site introducand date corecte
+Given:  Utilizatorul are un cont creat 
+And:Utilizatorul da click pe butonul "Log In"
+When:Utilizatorul completeaza spaceholder-urile "Email Address" si "Password"
+Then: Da click pe butonul "Sign in"
+
+Feature: Logarea pe site
+Scenario  2 : Utilizatorul nu ar trebui sa se poata loga pe site introducand date gresite
+Given:  Utilizatorul da click pe butonul "Log In"
+When:Utilizatorul completeaza spaceholder-urile "Email Address" si "Password" cu greseli
+Then: Da click pe butonul "Sign in"
+
+Feature 3: Resetarea parolei 
+Scenario : Utilizatorul trebuie sa primeasca un cod de verificare pe e mail cand incearca sa-si reseteze parola
+Given: Utilizatorul are un cont creat 
+And: Utilizatorul are acces la adresa de email care a indicato la crearea contului
+When: Utilizatoul da click pe "Forgot Password"
+And: Tapeaza adresa de email cu care s-a inregistrat pe site
+Then: Da click pe butonul "Reset Passwort"
+
+
+Feature 4: Vizionare video
+Scenario: Utilizatorul ar trebui sa poata viziona video-ul de pe pagina principala
+Given:Utilizatorul se afla pe pagina principala
+When: Utilizatorul identifica sectiunea "How uTest Works"
+Then: Utilizatorul da click pe pictograma "Play" de pe video
+
+
+Feature 5: Logo-ul functioneaza ca buton
+Scenario: Utilizatorul ar trebui sa fie redirectionat la pagina principala cand da click pe Logo.
+Given: Utilizatorul se afla pe pagina principala
+When: Utilizatorul da scroll in jos pana la sfarsit
+Then: Utilizatorul da click pe Logo
+
+
+Feature: Logo-ul functioneaza ca buton
+Scenario: Utilizatorul ar trebui sa fie redirectionat la pagina principala cand da click pe Logo.
+When: Utilizatorul apasa pe sectiunea "About Us"
+Then: Utilizatorul da click pe Logo 
+
+
